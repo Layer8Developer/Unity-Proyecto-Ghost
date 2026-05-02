@@ -21,14 +21,13 @@ public class Player : MonoBehaviour
     private GameObject AIPos;
     public Animator Anims;
 
-    //  Nueva variable
     private Vector3 lastMoveDirection = Vector3.forward;
 
     //============FOOTSTEPS====================
     private bool enableFootSteps;
     private AudioSource sourceAudio;
     public AudioClip[] FootStepsSounds;
-    public float rate = 1f; // sonidos por segundo
+    public float rate = 1f; 
     float timer;
 
     void Start()
@@ -49,7 +48,7 @@ public class Player : MonoBehaviour
 
         Vector3 movement = new Vector3(MoveX, 0, MoveY);
 
-        // Si hay movimiento, actualizamos la dirección
+        
         if (movement.magnitude > 0.1f)
         {
             lastMoveDirection = movement.normalized;
@@ -82,7 +81,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        //  SI ENCONTRÓ ENEMIGO
+       
         if (foundEnemy)
         {
             CameraYBoost.aimingEnemy = true;
@@ -93,7 +92,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //  empieza a contar
+
             timerRange += Time.deltaTime;
 
             if (timerRange >= deactivateDelay)
